@@ -1,0 +1,23 @@
+<nav [ngClass]="navToggle ? 'open' : 'close'">
+  <div class="brand">
+    <h2><a routerLink="home">B4A</a></h2>
+  </div>
+  <div class="controls">
+    <div class="user-controls" (click)="toggleUserControl()">
+      <div class="user-avatar">
+        <img [src]="user.image" alt="User avatar" />
+      </div>
+      <div class="user" [ngClass]="userControl ? '' : 'hide'">
+        <div class="user-image">
+          <img [src]="user.image" alt="User image" />
+        </div>
+        <h3>{{ user.name }}</h3>
+        <div class="user-options">
+          <button>Perfil</button>
+
+          <button>Cerrar Sesion</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

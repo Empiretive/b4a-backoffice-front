@@ -1,0 +1,5 @@
+<div class="alert" [ngClass]="showAlert ? 'show' : 'hide'">
+  {{ alertMessage }}
+  <button (click)="hideAlert()">Cerrar</button>
+</div>
+<div class="overload" [ngClass]="showAlert ? 'show' : 'hide'"></div>

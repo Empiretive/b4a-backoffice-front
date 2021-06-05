@@ -1,0 +1,139 @@
+aside {
+  background: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1010;
+}
+aside.open {
+  width: 40vh;
+  transition: var(--main-transition);
+}
+aside.close {
+  width: 40px;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+aside .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+}
+/* Button */
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-width: 35px;
+  min-height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5px 0px 10px 0px;
+  border-radius: var(--border-radius);
+  background: var(--secundary-color);
+}
+aside.open button {
+  width: 100%;
+}
+button span {
+  display: block;
+  position: relative;
+  border-radius: 2px;
+  background: var(--inverted-title);
+  width: 30px;
+  height: 4px;
+  transition: var(--main-transition);
+}
+
+aside.open button span:nth-child(1) {
+  transform: rotate(45deg) translateY(6.5px) translateX(6.5px);
+  transition: var(--main-transition);
+}
+aside.open button span:nth-child(2) {
+  transform: rotate(-135deg);
+  transition: var(--main-transition);
+}
+aside.open button span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6.5px) translateX(6.5px);
+  transition: var(--main-transition);
+}
+/* navegation */
+aside .menu nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+/* Items of navigation */
+aside .menu nav a {
+  text-decoration: none;
+  display: block;
+  width: 90%;
+  padding: 10px;
+  color: var(--inverted-title);
+  transition: var(--main-transition);
+  border-radius: var(--border-radius);
+}
+
+aside .menu nav a:hover {
+  background: var(--inverted-title);
+  color: var(--main-text);
+  transition: var(--main-transition);
+}
+aside .menu nav a:hover .icon {
+  color: var(--main-text);
+}
+aside .menu nav a:hover .route-text {
+  color: var(--main-text);
+}
+aside .menu nav a .icon {
+  padding: 0px 10px;
+  font-size: 20px;
+}
+aside.close .menu nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+aside.close .menu nav a .icon {
+  font-size: 20px;
+}
+aside .menu nav a .route-text {
+  display: inline-block;
+  transition: var(--main-transition);
+}
+aside.close .menu nav a .route-text {
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  transition: var(--main-transition);
+}
+aside.open .menu nav a .route-text {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  text-align: right;
+  transition: all 0.6s ease-in-out;
+}
+/* Settings */
+.settings {
+  padding: 10px;
+  margin: 10px;
+  color: var(--inverted-title);
+  cursor: pointer;
+}
+.settings a {
+  text-decoration: none;
+  color: var(--inverted-title);
+  padding: 10px;
+}

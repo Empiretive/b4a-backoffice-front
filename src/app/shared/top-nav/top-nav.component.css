@@ -1,0 +1,121 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  align-items: center;
+  height: 50px;
+  background: var(--light-back);
+  color: var(--main-text);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--light-border);
+}
+nav.open {
+  transition: var(--main-transition);
+
+  width: calc(100% - 40px);
+}
+nav.close {
+  transition: var(--main-transition);
+
+  width: calc(100% - 40vh);
+}
+nav .controls {
+  padding: 0px 25px;
+}
+
+/* brand */
+nav .brand h2 a {
+  text-align: center;
+  text-decoration: none;
+  color: var(--main-color);
+}
+/* Users controls */
+nav .controls .user-controls {
+  position: relative;
+}
+nav .controls .user-controls .user-avatar {
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  border-radius: 100%;
+  background: var(--secundary-color);
+  position: relative;
+  cursor: pointer;
+}
+nav .controls .user-controls .user-avatar img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+nav .controls .user-controls .user {
+  position: absolute;
+  top: 55px;
+  width: 25vw;
+  max-width: 250px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--dark-back);
+  right: 50%;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--dark-border);
+  transition: var(--main-transition);
+}
+nav .controls .user-controls .user::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  right: 5px;
+  top: -14px;
+  /* background: var(--dark-border); */
+  border-bottom: 14px solid var(--dark-border);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+}
+nav .controls .user-controls .user .user-image {
+  width: 50%;
+  height: 50%;
+  border-radius: 100%;
+  overflow: hidden;
+}
+nav .controls .user-controls .user .user-image img {
+  width: 100%;
+  height: 100%;
+}
+
+nav .controls .user-controls .user.hide {
+  overflow: hidden;
+  width: 0px;
+  max-height: 0px;
+  min-height: 0;
+  height: 0px;
+  border: none;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+
+nav .controls .user-controls .user .user-options {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+nav .controls .user-controls .user .user-options > button {
+  display: block;
+  padding: 10px;
+  background: var(--main-color);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--inverted-title);
+  cursor: pointer;
+}
