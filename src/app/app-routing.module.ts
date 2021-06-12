@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'reports', loadChildren: () => import('./core/reports/reports.module').then(m => m.ReportsModule) },
   { path: 'orders', loadChildren: () => import('./core/orders/orders.module').then(m => m.OrdersModule) },
   { path: 'settings', loadChildren: () => import('./core/settings/settings.module').then(m => m.SettingsModule) },
+  { path: 'auth', loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule) },
 ];
 
 @NgModule({
