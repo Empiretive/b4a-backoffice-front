@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JwtGuard } from './shared/guards/jwt.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/auth',
     pathMatch: 'full',
   },
   {
-    path: 'home',
+    path: 'auth',
     loadChildren: () =>
-      import('./core/home/home.module').then((m) => m.HomeModule),
+      import('./core/auth/auth.module').then((m) => m.AuthModule),
+    canLoad: [JwtGuard],
   },
-  { path: 'users', loadChildren: () => import('./core/users/users.module').then(m => m.UsersModule) },
-  { path: 'products', loadChildren: () => import('./core/products/products.module').then(m => m.ProductsModule) },
-  { path: 'tags', loadChildren: () => import('./core/tags/tags.module').then(m => m.TagsModule) },
-  { path: 'reports', loadChildren: () => import('./core/reports/reports.module').then(m => m.ReportsModule) },
-  { path: 'orders', loadChildren: () => import('./core/orders/orders.module').then(m => m.OrdersModule) },
-  { path: 'settings', loadChildren: () => import('./core/settings/settings.module').then(m => m.SettingsModule) },
-  { path: 'auth', loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule) },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./core/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,17 @@
+main {
+  height: calc(100vh - 50px);
+  position: fixed;
+  overflow-y: scroll;
+  top: 50px;
+  padding: 20px;
+  right: 0;
+}
+
+main.open {
+  width: calc(100% - 40vh);
+  transition: var(--main-transition);
+}
+main.close {
+  width: calc(100% - 40px);
+  transition: var(--main-transition);
+}

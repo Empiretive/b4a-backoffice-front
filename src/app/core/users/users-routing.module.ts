@@ -13,10 +13,16 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterUserComponent,
+        data: {
+          role: 1,
+        },
       },
       {
         path: 'list',
         component: ListUsersComponent,
+        data: {
+          role: 1,
+        },
       },
     ],
   },

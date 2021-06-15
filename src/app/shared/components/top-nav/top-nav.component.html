@@ -1,6 +1,6 @@
 <nav [ngClass]="navToggle ? 'open' : 'close'">
   <div class="brand">
-    <h2><a routerLink="home">B4A</a></h2>
+    <h2><a routerLink="/dashboard/home">B4A</a></h2>
   </div>
   <div class="controls">
     <div class="user-controls" (click)="toggleUserControl()">
@@ -15,7 +15,7 @@
         <div class="user-options">
           <button>Perfil</button>
 
-          <button>Cerrar Sesion</button>
+          <button (click)="logout()">Cerrar Sesion</button>
         </div>
       </div>
     </div>

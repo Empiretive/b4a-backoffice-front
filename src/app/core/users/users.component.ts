@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertsService } from 'src/app/shared/alerts/alerts.service';
+import { AlertsService } from 'src/app/shared/components/alerts/alerts.service';
 
 @Component({
   selector: 'b4a-users',

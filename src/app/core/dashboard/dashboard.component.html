@@ -1,0 +1,15 @@
+<!-- Navegacion superior -->
+<b4a-top-nav></b4a-top-nav>
+<!-- Navegacion Lateral -->
+<b4a-side-nav></b4a-side-nav>
+
+<!-- Contenido principal -->
+<main
+  (click)="hideControls()"
+  [ngClass]="mainToggle ? 'close' : 'open'"
+  [@mainAnimation]="o.isActivated ? o.activatedRoute : ''"
+>
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+
+<b4a-alerts></b4a-alerts>

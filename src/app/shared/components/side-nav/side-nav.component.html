@@ -1,0 +1,22 @@
+<aside [ngClass]="sideMenu ? 'close' : 'open'">
+  <div class="menu">
+    <button (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ng-container *ngFor="let route of navRoutes">
+        <a routerLink="{{ route.path }}" *role="route.role">
+          <span class="icon {{ route.icon }}"></span>
+          <span class="route-text">
+            {{ route.name }}
+          </span>
+        </a>
+      </ng-container>
+    </nav>
+  </div>
+  <div class="settings" *role="1">
+    <a routerLink="settings"><span class="icon-settings"></span></a>
+  </div>
+</aside>

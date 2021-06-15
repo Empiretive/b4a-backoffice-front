@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToggleContentService } from 'src/app/services/toggle-content.service';
+import { ToggleContentService } from 'src/app/shared/services/toggle-content.service';
 import { Routes } from './routes';
 @Component({
   selector: 'b4a-side-nav',

@@ -8,7 +8,7 @@ import {
   animateChild,
 } from '@angular/animations';
 
-export const mainAnimation = trigger('mainAnimation', [
+export const fadeOut = trigger('fadeOut', [
   transition('* <=> *', [
     style({ position: 'fixed' }),
     query(
@@ -16,26 +16,22 @@ export const mainAnimation = trigger('mainAnimation', [
       [
         style({
           position: 'fixed',
-          right: 0,
+          opacity: 0,
         }),
       ],
       { optional: true }
     ),
-    query(':enter', [style({ transform: 'translateX(-100%)' })], {
+    query(':enter', [animate('700ms ease-out', style({ opacity: '1' }))], {
       optional: true,
     }),
     query(':leave', animateChild(), { optional: true }),
     group([
-      query(
-        ':leave',
-        [animate('300ms ease-out', style({ transform: 'translateX(100%)' }))],
-        { optional: true }
-      ),
-      query(
-        ':enter',
-        [animate('300ms ease-out', style({ transform: 'translateX(0%)' }))],
-        { optional: true }
-      ),
+      query(':leave', [animate('700ms ease-out', style({ opacity: '0' }))], {
+        optional: true,
+      }),
+      query(':enter', [animate('700ms ease-out', style({ opacity: '1' }))], {
+        optional: true,
+      }),
     ]),
     query(':enter', animateChild(), { optional: true }),
   ]),
