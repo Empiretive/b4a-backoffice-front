@@ -1,6 +1,25 @@
-<p>signin works!</p>
-<h3>Login falso para pruebas</h3>
-<button (click)="setAdminRole()">Entrar como administrador</button>
-<button (click)="setManagerRole()">Entrar como Manager</button>
-<button (click)="setEmployeeRole()">Entrar como Empleado</button>
+<div>
+    <h1>Iniciar Sesión</h1>
+</div>
+<div class="content-form">
 
+<form [formGroup]="formLogin" (submit)= "setLoginOnApplication()" >
+
+    <div>
+        <label>Email o DNI</label>
+        <input type="text" formControlName="userPass">
+        <span>{{getError("userPass")}} </span>
+    </div>
+
+    <div>
+        <label>Contraseña</label>
+        <input type="password" formControlName="password">
+        {{getError("password")}}
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="formLogin.invalid">Enviar</button>
+    </div>
+
+</form>
+</div>

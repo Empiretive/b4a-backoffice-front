@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'b4a-signin',
@@ -8,61 +9,31 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  user: any = {
-    name: 'Glendy',
-    role: {
-      level: 1,
-    },
-    token: 'TokenValuajfoksdgopajfihwadnfjcsaife',
-    image: './assets/user-placeholder.jpg',
-  };
+ public formLogin:FormGroup= this.formBuilder.group({
+  userPass:["", Validators.required ],
+   password:["", [Validators.required, Validators.minLength(4), Validators.maxLength(12)]]
+ })
   constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {}
 
-  // *************** Eliminar estas funciones cuando se haga el login real **************
-
-  setAdminRole() {
-    this.user.role = {
-      level: 1,
-      name: 'Admin',
-    };
-    this.fakeLogin();
-  }
-  setManagerRole() {
-    this.user.role = {
-      level: 2,
-      name: 'Manager',
-    };
-    this.fakeLogin();
-  }
-  setEmployeeRole() {
-    this.user.role = {
-      level: 3,
-      name: 'Empleado',
-    };
-    this.fakeLogin();
-  }
-  // Esta funcion imita un login falso para poder probar el enrutamiento
-  fakeLogin() {
-    this.setLoginOnApplication(this.user);
-  }
-
-  // ************** Hasta aca las funciones falsas
+    getError(field: string){
+     const currentField = this.formLogin.get(field);
+     let error;
+     if(currentField?.touched && currentField.errors !== null){
+        error = JSON.stringify(currentField.errors);
+     }
+     return error;
+    }
 
   // Esta funcion lo que hace es recibir el usuario que hizo login y llenar los campos en la aplicacion
-  setLoginOnApplication(user: any): any {
+  async setLoginOnApplication() {
+    const user = this.formLogin.value;
     this.authService.Login(user);
-    const logged = this.authService.isLoggedIn();
-    if (logged) {
-      this.router.navigateByUrl('/dashboard');
-    } else {
-      // Logica de cuando hay problema con el login
-      return 0;
-    }
   }
 }

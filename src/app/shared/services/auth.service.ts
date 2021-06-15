@@ -1,11 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from "../../../environments/environment";
 import { Subject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
   private user: any = {
     image: 'assets/user-placeholder.jpg',
     name: 'Usuario',
@@ -25,11 +27,18 @@ export class AuthService {
   }
 
   //hacer loguin del usuario
-  Login(user: any): void {
+    Login(user: any) {
     // Logica y peticiones para hacer loguin
-
-    this.setUser(user);
-    localStorage.setItem('token', user.token);
+    
+    return this.http.post(`${environment.baseAPIUrl}/auth/signin`, user).subscribe((res: any) =>{
+      if(res.data.user){
+        console.log(res.data.user)
+        this.setUser(res.data.user);
+    localStorage.setItem('token', res.data.user.token); 
+    this.router.navigateByUrl('/dashboard');
+      }
+    })
+  
   }
 
   // Validar si hay un usuario logueado
