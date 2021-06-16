@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     component: AuthComponent,
-    canActivateChild: [JwtGuard],
+    // canActivateChild: [JwtGuard],
     children: [
       {
         path: '',

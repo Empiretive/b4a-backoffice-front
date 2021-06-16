@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./core/auth/auth.module').then((m) => m.AuthModule),
-    canLoad: [JwtGuard],
+    // canLoad: [JwtGuard],
   },
   {
     path: 'dashboard',

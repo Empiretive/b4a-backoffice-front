@@ -41,6 +41,7 @@ export class JwtGuard implements CanActivateChild, CanLoad {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     const JwtAuth = this.authService.JWTUserCouldLogin();
+    console.log(`Validado el JWT: ${JwtAuth}`);
     if (JwtAuth) {
       void this.router.navigateByUrl('/dashboard');
     }

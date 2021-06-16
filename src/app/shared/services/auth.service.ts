@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from "../../../environments/environment";
+import { environment } from '../../../environments/environment';
 import { Subject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
@@ -27,18 +27,10 @@ export class AuthService {
   }
 
   //hacer loguin del usuario
-    Login(user: any) {
+  Login(user: any) {
     // Logica y peticiones para hacer loguin
-    
-    return this.http.post(`${environment.baseAPIUrl}/auth/signin`, user).subscribe((res: any) =>{
-      if(res.data.user){
-        console.log(res.data.user)
-        this.setUser(res.data.user);
-    localStorage.setItem('token', res.data.user.token); 
-    this.router.navigateByUrl('/dashboard');
-      }
-    })
-  
+
+    return this.http.post(`${environment.baseAPIUrl}/auth/signin`, user);
   }
 
   // Validar si hay un usuario logueado
@@ -49,13 +41,28 @@ export class AuthService {
 
   JWTUserCouldLogin() {
     const token = localStorage.getItem('token');
-    if (token) {
-      // Logica para conseguir el usuario logueado si el token aun es valido
 
-      return true;
-    } else {
-      return false;
-    }
+    // Logica para conseguir el usuario logueado si el token aun es valido
+    const userFound = this.http
+      .post(`${environment.baseAPIUrl}/auth/user/token`, { token: token })
+      .subscribe(
+        (res: any) => {
+          if (res.success) {
+            this.setUser(res.data);
+            this.router.navigateByUrl('/dashboard');
+            return true;
+          }
+          localStorage.removeItem('token');
+          this.router.navigateByUrl('/auth/signin');
+          return false;
+        },
+        (err) => {
+          localStorage.removeItem('token');
+          this.router.navigateByUrl('/auth/signin');
+        }
+      );
+    this.router.navigateByUrl('/auth/signin');
+    return userFound;
   }
 
   // Cerrar sesion

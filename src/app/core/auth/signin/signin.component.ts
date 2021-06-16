@@ -9,10 +9,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
- public formLogin:FormGroup= this.formBuilder.group({
-  userPass:["", Validators.required ],
-   password:["", [Validators.required, Validators.minLength(4), Validators.maxLength(12)]]
- })
+  public formLogin: FormGroup = this.formBuilder.group({
+    userPass: ['', Validators.required],
+    password: [
+      '',
+      [Validators.required, Validators.minLength(4), Validators.maxLength(12)],
+    ],
+  });
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -22,18 +25,28 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {}
 
-    getError(field: string){
-     const currentField = this.formLogin.get(field);
-     let error;
-     if(currentField?.touched && currentField.errors !== null){
-        error = JSON.stringify(currentField.errors);
-     }
-     return error;
+  getError(field: string) {
+    const currentField = this.formLogin.get(field);
+    let error;
+    if (currentField?.touched && currentField.errors !== null) {
+      error = JSON.stringify(currentField.errors);
     }
+    return error;
+  }
 
   // Esta funcion lo que hace es recibir el usuario que hizo login y llenar los campos en la aplicacion
   async setLoginOnApplication() {
     const user = this.formLogin.value;
-    this.authService.Login(user);
+    this.authService.Login(user).subscribe((res: any) => {
+      if (res.success) {
+        if (res.data.user != null) {
+          this.authService.setUser(res.data.user);
+          localStorage.setItem('token', res.data.user.token);
+          this.router.navigateByUrl('/dashboard');
+        }
+      } else {
+        alert('No se pudo iniciar sesion');
+      }
+    });
   }
 }

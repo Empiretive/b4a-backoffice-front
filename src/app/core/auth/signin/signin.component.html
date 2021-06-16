@@ -1,25 +1,22 @@
 <div>
-    <h1>Iniciar Sesión</h1>
+  <h1>Iniciar Sesión</h1>
 </div>
 <div class="content-form">
-
-<form [formGroup]="formLogin" (submit)= "setLoginOnApplication()" >
-
+  <form [formGroup]="formLogin" (submit)="setLoginOnApplication()">
     <div>
-        <label>Email o DNI</label>
-        <input type="text" formControlName="userPass">
-        <span>{{getError("userPass")}} </span>
+      <label>Email o DNI</label>
+      <input type="text" formControlName="userPass" />
+      <span>{{ getError("userPass") }} </span>
     </div>
 
     <div>
-        <label>Contraseña</label>
-        <input type="password" formControlName="password">
-        {{getError("password")}}
+      <label>Contraseña</label>
+      <input type="password" formControlName="password" />
+      {{ getError("password") }}
     </div>
 
     <div>
-        <button type="submit" [disabled]="formLogin.invalid">Enviar</button>
+      <button type="submit" [disabled]="formLogin.invalid">Enviar</button>
     </div>
-
-</form>
+  </form>
 </div>
