@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.titulo-login{ 
+text-align: center;
+padding: 50px;
+}
+.content-form{
+    text-align: center;
+    
+}
+.form-input{
+    padding: 15px;
+    margin: 10px;
+    width: 35%;
+    border: transparent;
+    border-bottom: solid 5px rgb(80, 128, 146);
+    background-color: var(--main-background);
+    border-radius: 5px;
+
+}
+.form-button{
+    width: 25%;
+    padding:10px ;
+    margin-top: 50px;
+    border: transparent;
+    border-bottom: solid 5px rgb(80, 128, 146);
+    background-color: var(--main-background);
+    border-radius: 5px;
+}
+.mensajeError-control{
+    display: flex;
+    flex-direction: column-reverse;
+}

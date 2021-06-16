@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, MinValidator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'b4a-signin',
@@ -11,9 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SigninComponent implements OnInit {
   public formLogin: FormGroup = this.formBuilder.group({
     userPass: ['', Validators.required],
-    password: [
-      '',
-      [Validators.required, Validators.minLength(4), Validators.maxLength(12)],
+    password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(12)],
     ],
   });
   constructor(
@@ -28,11 +26,38 @@ export class SigninComponent implements OnInit {
   getError(field: string) {
     const currentField = this.formLogin.get(field);
     let error;
-    if (currentField?.touched && currentField.errors !== null) {
-      error = JSON.stringify(currentField.errors);
-    }
-    return error;
-  }
+    if (currentField?.touched || currentField?.dirty && currentField.errors !== null) { 
+       
+  
+        if(currentField?.hasError('minLength')){
+          error = `El ${field} tiene pocos caracteres`; }
+
+         if(currentField?.hasError('required')){
+          error= `El ${field} es requerido`;}
+
+         if(currentField?.hasError('maxLength')) {
+          error=`El ${field} solo debe tener 12 caracteres` }
+        
+        }
+        return error;
+   }
+    
+
+
+
+
+// ' '' '' '' '' ' mis pinches comillas simples
+    
+
+    
+     
+      //  error = `El ${field} es requerido`; 
+
+    // AQUI PONDRE LAS PINCHES COMILLAS INVERSAS QUE NUNCA ME SALEN
+    
+  // ``````
+    
+  
 
   // Esta funcion lo que hace es recibir el usuario que hizo login y llenar los campos en la aplicacion
   async setLoginOnApplication() {
