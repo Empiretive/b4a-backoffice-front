@@ -29,13 +29,13 @@ export class SigninComponent implements OnInit {
     if (currentField?.touched || currentField?.dirty && currentField.errors !== null) { 
        
   
-        if(currentField?.hasError('minLength')){
+        if(currentField?.hasError('minlength')){
           error = `El ${field} tiene pocos caracteres`; }
 
          if(currentField?.hasError('required')){
           error= `El ${field} es requerido`;}
 
-         if(currentField?.hasError('maxLength')) {
+         if(currentField?.hasError('maxlength')) {
           error=`El ${field} solo debe tener 12 caracteres` }
         
         }
