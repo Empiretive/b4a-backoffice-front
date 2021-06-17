@@ -1,0 +1,24 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 11000;
+}
+section {
+  width: 40%;
+  min-height: 250px;
+  background: white;
+  z-index: 11100;
+}
+.container.hide {
+  display: none !important;
+  visibility: hidden;
+}
+.container.show {
+  display: flex;
+}

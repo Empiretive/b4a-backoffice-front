@@ -1,0 +1,8 @@
+<div class="container" [ngClass]="showAlert ? 'show' : 'hide'">
+  <section>
+    <h2>{{ title }}</h2>
+    <p>{{ body }}</p>
+    <button (click)="aceptAlert()">Cerrar</button>
+  </section>
+  <overload></overload>
+</div>

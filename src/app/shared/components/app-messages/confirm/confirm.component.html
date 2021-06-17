@@ -1,0 +1,9 @@
+<div class="container" [ngClass]="showConfirm ? 'show' : 'hide'">
+  <section>
+    <h2>{{ title }}</h2>
+    <p>{{ body }}</p>
+    <button (click)="acept()">Aceptar</button>
+    <button (click)="reject()">Cancelar</button>
+  </section>
+  <overload></overload>
+</div>
