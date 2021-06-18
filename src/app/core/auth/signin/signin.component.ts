@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppMessagesService } from 'src/app/shared/components/app-messages/app-messages.service';
 
 @Component({
   selector: 'b4a-signin',
@@ -19,8 +20,8 @@ export class SigninComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private appMessagesService: AppMessagesService
   ) {}
 
   ngOnInit(): void {}
@@ -45,7 +46,10 @@ export class SigninComponent implements OnInit {
           this.router.navigateByUrl('/dashboard');
         }
       } else {
-        alert('No se pudo iniciar sesion');
+        this.appMessagesService.alertShow(
+          'No se pudo iniciar sesion',
+          'Puede que el usuario o la contraseña sean incorrectas'
+        );
       }
     });
   }

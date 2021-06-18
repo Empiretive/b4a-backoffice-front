@@ -25,6 +25,6 @@ export class AlertComponent implements OnInit {
   }
   aceptAlert() {
     this.showAlert = false;
-    this.alertAcepted();
+    this.alertAcepted && this.alertAcepted();
   }
 }

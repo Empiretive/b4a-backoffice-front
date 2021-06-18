@@ -14,7 +14,7 @@ export class AppMessagesService {
   setAlert(): Observable<any> {
     return this.alert;
   }
-  alertShow(title: string, body: string, successFunction: () => void) {
+  alertShow(title: string, body: string, successFunction?: () => void) {
     this.alert.next({
       title: title,
       body: body,
