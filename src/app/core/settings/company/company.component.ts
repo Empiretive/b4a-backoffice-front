@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseStorageService } from 'src/app/shared/services/firebase-storage.service';
 import { Image2base64Service } from 'src/app/shared/utils/image2base64.service';
 
@@ -8,9 +9,20 @@ import { Image2base64Service } from 'src/app/shared/utils/image2base64.service';
   styleUrls: ['./company.component.css'],
 })
 export class CompanyComponent implements OnInit {
+  public formCompany: FormGroup = this.formBuilder.group({
+  Name:['', Validators.required], 
+  Description:['', Validators.required],
+  Telephone:['+58 ', Validators.pattern(/^\+\d{2,3}\s\d{9,11}$/), Validators.required], 
+  Email:['',[ Validators.required, Validators.email]],
+  Logo:['', Validators.required],
+  })
+
+
+
   constructor(
     private storage: FirebaseStorageService,
-    private base64: Image2base64Service
+    private base64: Image2base64Service,
+    private formBuilder:FormBuilder,
   ) {}
 
   ngOnInit(): void {}
@@ -29,5 +41,8 @@ export class CompanyComponent implements OnInit {
     // ref.getDownloadURL().subscribe((res) => {
     //   console.log(res);
     // });
+  }
+  SaveCompany(){
+    console.log(this.formCompany.value)
   }
 }

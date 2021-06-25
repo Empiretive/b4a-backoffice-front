@@ -2,14 +2,14 @@
 
 <section class="content-section w-100">
   <div class="form-group w-50">
-    <form class="w-100">
+    <form class="w-100" [formGroup]="formCompany" (submit)="SaveCompany()">
       <!-- Nombre de la compañia -->
-      <div class="form-control">
+      <div class="form-control"> 
         <div class="input-control">
           <label for="name">Nombre de la compañia</label>
-          <input type="text" />
+          <input type="text" formControlName="Name" />
         </div>
-        <div class="error-control">
+        <div class="error-control"> 
           <span></span>
         </div>
       </div>
@@ -18,7 +18,7 @@
       <div class="form-control">
         <div class="input-control">
           <label for="description">Descripcion</label>
-          <input type="text" />
+          <input type="text" formControlName="Description"/>
         </div>
         <div class="error-control">
           <span></span>
@@ -28,28 +28,28 @@
       <!-- Telefono -->
       <div class="form-control">
         <div class="input-control">
-          <label for="description">Telefono</label>
-          <input type="text" />
+          <label for="telephone">Telefono</label>
+          <input type="tel" formControlName="Telephone" />
         </div>
         <div class="error-control">
           <span></span>
         </div>
       </div>
-      <!-- Email -->
+      <!-- -----Email----- -->
       <div class="form-control">
         <div class="input-control">
-          <label for="description">Email</label>
-          <input type="text" />
+          <label for="email">Email</label>
+          <input type="email" formControlName="Email" />
         </div>
         <div class="error-control">
           <span></span>
         </div>
       </div>
-      <!-- Telefono -->
+      <!--------Logo------- -->
       <div class="form-control">
         <div class="input-control">
           <label for="log">Logo</label>
-          <input type="file" (change)="uploadFile($event)" />
+          <input type="file" (change)="uploadFile($event)" formControlName="Logo"/>
         </div>
         <div class="error-control">
           <span></span>

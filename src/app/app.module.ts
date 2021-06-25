@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from './shared/shared.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -26,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
+
   ],
   providers: [
     {

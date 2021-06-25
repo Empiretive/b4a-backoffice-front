@@ -1,0 +1,53 @@
+<h3 class="section-title">Roles</h3>
+<section class="content-section w-50">
+   <div class="form-group w-100">
+       <form class="w-90" [formGroup]="form" (submit)="SaveRoles()">
+        <!--------------Nivel 1 ----------->
+        <div class="form-control">
+            <div class="input-control">
+              <label>Nivel 1</label>
+              <input type="text" formControlName="admin"/>
+            </div>
+            <div class="error-control">
+              <span></span>
+            </div>
+          </div>
+          <!-----------Nivel 2-------------->
+          <div class="form-control">
+            <div class="input-control">
+              <label>Nivel 2</label>
+              <input type="text" formControlName="manager"/>
+            </div>
+            <div class="error-control">
+              <span></span>
+            </div>
+          </div>
+          <!------------Nivel 3----------->
+          <div class="form-control">
+            <div class="input-control">
+              <label>Nivel 3</label>
+              <input type="text"  formControlName="employee"/>
+            </div>
+            <div class="error-control">
+              <span></span>
+            </div>
+          </div>
+          <!-----------Nivel 4------------>
+          <div class="form-control">
+            <div class="input-control">
+              <label>Nivel 4</label>
+              <input type="text" formControlName="client"/>
+            </div>
+            <div class="error-control">
+              <span></span>
+            </div>
+          </div>
+          <div class="form-control">
+            <button type="submit">Guardar</button>
+          </div>
+
+        </form>
+
+
+    </div>
+</section>

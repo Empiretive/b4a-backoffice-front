@@ -13,8 +13,8 @@ export class SettingsComponent implements OnInit {
       role: 1,
     },
     {
-      path: 'interface',
-      name: 'Interfaz',
+      path: 'roles',
+      name: 'Roles',
       role: 1,
     },
   ];
