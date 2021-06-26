@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyComponent } from './company/company.component';
+import { InterfaceComponent } from './interface/interface.component';
 import { RolesComponent } from './roles/roles.component';
 import { SettingsComponent } from './settings.component';
 
@@ -22,6 +23,13 @@ const routes: Routes = [
       {
         path: 'roles',
         component: RolesComponent,
+        data: {
+          role: 1,
+        },
+      },
+      {
+        path: 'interface',
+        component: InterfaceComponent,
         data: {
           role: 1,
         },

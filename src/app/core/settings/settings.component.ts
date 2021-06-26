@@ -17,6 +17,11 @@ export class SettingsComponent implements OnInit {
       name: 'Roles',
       role: 1,
     },
+    {
+      path: 'interface',
+      name: 'Interfaz',
+      role: 1,
+    },
   ];
   constructor() {}
 
