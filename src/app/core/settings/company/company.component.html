@@ -48,7 +48,7 @@
       <div class="form-control">
         <div class="input-control">
           <label for="log">Logo</label>
-          <input type="file" />
+          <input type="file" (change)="uploadFile($event)" />
         </div>
         <div class="error-control">
           <span></span>
