@@ -9,7 +9,9 @@ import { AppMessagesModule } from './shared/components/app-messages/app-messages
 import { JwtAuthInterceptor } from './shared/interceptors/jwt-auth.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,6 +22,8 @@ import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
     HttpClientModule,
     AppMessagesModule,
     NgxSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
   ],
   providers: [
     {

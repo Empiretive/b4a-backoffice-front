@@ -5,11 +5,17 @@
   <div class="controls">
     <div class="user-controls" (click)="toggleUserControl()">
       <div class="user-avatar">
-        <img [src]="user.image" alt="User avatar" />
+        <img
+          [src]="user.image ? user.image : './assets/user-placeholder.jpg'"
+          alt="User avatar"
+        />
       </div>
       <div class="user" [ngClass]="userControl ? '' : 'hide'">
         <div class="user-image">
-          <img [src]="user.image" alt="User image" />
+          <img
+            [src]="user.image ? user.image : './assets/user-placeholder.jpg'"
+            alt="User image"
+          />
         </div>
         <h3>{{ user.name }}</h3>
         <div class="user-options">

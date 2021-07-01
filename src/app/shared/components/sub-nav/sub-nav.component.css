@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 5px 5px 0px 5px;
+  background: var(--light-back);
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+nav .nav-item a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--main-text);
+  text-decoration: none;
+  transition: var(--main-transition);
+}
+nav .nav-item a:hover {
+  display: block;
+  padding: 10px 20px;
+  color: var(--main-text);
+  text-decoration: underline;
+  transition: var(--main-transition);
+}
+nav .nav-item a.active {
+  display: block;
+  padding: 10px 20px;
+  color: var(--main-text);
+  text-decoration: none;
+  transition: var(--main-transition);
+  background: var(--main-background);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}

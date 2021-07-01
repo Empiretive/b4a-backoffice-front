@@ -4,13 +4,13 @@ nav {
   padding: 0px 15px;
   align-items: center;
   height: 50px;
-  background: var(--light-back);
+  background: var(--main-color);
   color: var(--main-text);
   position: fixed;
   top: 0;
   right: 0;
   z-index: 1000;
-  border-bottom: 2px solid var(--light-border);
+  border-bottom: 2px solid var(--secundary-color);
 }
 nav.open {
   transition: var(--main-transition);
@@ -30,7 +30,7 @@ nav .controls {
 nav .brand h2 a {
   text-align: center;
   text-decoration: none;
-  color: var(--main-color);
+  color: var(--inverted-title);
 }
 /* Users controls */
 nav .controls .user-controls {
@@ -41,7 +41,7 @@ nav .controls .user-controls .user-avatar {
   height: 35px;
   overflow: hidden;
   border-radius: 100%;
-  background: var(--secundary-color);
+  background: var(--dark-back);
   position: relative;
   cursor: pointer;
 }
@@ -63,7 +63,7 @@ nav .controls .user-controls .user {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: var(--dark-back);
+  background: var(--light-back);
   right: 50%;
   border-radius: var(--border-radius);
   border: 1px solid var(--dark-border);
@@ -78,7 +78,7 @@ nav .controls .user-controls .user::before {
   right: 5px;
   top: -14px;
   /* background: var(--dark-border); */
-  border-bottom: 14px solid var(--dark-border);
+  border-bottom: 14px solid var(--light-back);
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
 }

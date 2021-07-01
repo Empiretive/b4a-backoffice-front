@@ -1,0 +1,13 @@
+.image-content {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+.image-content .image {
+  background: var(--dark-back);
+  width: 80%;
+  height: auto;
+  min-height: 100px;
+  max-height: 150px;
+}

@@ -7,7 +7,11 @@
     </button>
     <nav>
       <ng-container *ngFor="let route of navRoutes">
-        <a routerLink="{{ route.path }}" *role="route.role">
+        <a
+          routerLink="{{ route.path }}"
+          routerLinkActive="active"
+          *role="route.role"
+        >
           <span class="icon {{ route.icon }}"></span>
           <span class="route-text">
             {{ route.name }}

@@ -1,36 +1,132 @@
-*{
-    padding: 0;
-    margin: 0;
+/* .form-group: Contenedor de todo un formulario */
+.form-group {
+  /* width: 45%; */
+  height: auto;
+  min-height: 300px;
+  padding: 20px 10px;
+  background: var(--light-back);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* form-title: Titulo del formulario */
+.form-group .form-title {
+  font-size: 20px;
+  margin: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--main-color);
+  padding: 10px;
+  border-bottom: 1px solid var(--main-color);
 }
 
-.titulo-login{ 
-text-align: center;
-padding: 50px;
+/* Form control: Grupos de inputs, labels, iconos y errores */
+.form-group .form-control {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.content-form{
-    text-align: center;
-    
+/* .input-control: Div que engloba al input y label */
+.form-control .input-control {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px 0px;
+  margin: 5px 0px;
 }
-.form-input{
-    padding: 15px;
-    margin: 10px;
-    width: 35%;
-    border: transparent;
-    border-bottom: solid 5px rgb(80, 128, 146);
-    background-color: var(--main-background);
-    border-radius: 5px;
 
+.form-control .input-control label {
+  width: 30%;
+  text-align: center;
+  color: var(--main-text);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 12px;
 }
-.form-button{
-    width: 25%;
-    padding:10px ;
-    margin-top: 50px;
-    border: transparent;
-    border-bottom: solid 5px rgb(80, 128, 146);
-    background-color: var(--main-background);
-    border-radius: 5px;
+.form-control .input-control input {
+  width: 70%;
+  padding: 7px;
+  border: none;
+  outline: none;
+  background: var(--dark-back);
+  transition: all 0.4s ease-in-out;
 }
-.mensajeError-control{
-    display: flex;
-    flex-direction: column-reverse;
+
+/* Error */
+.form-control .error-control {
+  width: 100%;
+  min-height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.form-control .error-control span {
+  text-align: right;
+  display: block;
+  width: 100%;
+  color: #f57b7b;
+  font-size: 10px;
+  font-weight: 200;
+}
+.form-control button[type="submit"] {
+  padding: 10px;
+  width: 50%;
+  background: var(--main-color);
+  color: var(--light-back);
+  border-radius: var(--border-radius);
+  border: none;
+  outline: none;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+  margin: 10px 0px;
+  transition: all 0.3s ease-in-out;
+}
+.form-control button[type="submit"]:disabled {
+  background: var(--dark-back);
+  color: var(--main-color);
+  transition: all 0.3s ease-in-out;
+  cursor: not-allowed;
+}
+/* Validaciones */
+
+.form-control .input-control input.ng-invalid.ng-touched {
+  border: 2px solid #f57b7b;
+  transition: all 0.4s ease-in-out;
+}
+.form-control .input-control input.ng-valid.ng-dirty {
+  border: 2px solid #93f57b;
+  transition: all 0.4s ease-in-out;
+}
+/* Widths */
+.w-20 {
+  width: 25%;
+}
+.w-30 {
+  width: 35%;
+}
+.w-40 {
+  width: 45%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-100 {
+  width: 100%;
 }

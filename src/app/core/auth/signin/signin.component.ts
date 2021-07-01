@@ -17,6 +17,10 @@ export class SigninComponent implements OnInit {
       [Validators.required, Validators.minLength(4), Validators.maxLength(12)],
     ],
   });
+  private controlsNames: any = {
+    userPass: 'El Correo | DNI',
+    password: 'La Contraseña',
+  };
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -29,20 +33,21 @@ export class SigninComponent implements OnInit {
   getError(field: string) {
     const currentField = this.formLogin.get(field);
     let error;
+    const name = this.controlsNames[field];
     if (
       currentField?.touched ||
       (currentField?.dirty && currentField.errors !== null)
     ) {
       if (currentField?.hasError('minlength')) {
-        error = `El ${field} tiene pocos caracteres`;
+        error = `${name} tiene pocos caracteres`;
       }
 
       if (currentField?.hasError('required')) {
-        error = `El ${field} es requerido`;
+        error = `${name} es requerido`;
       }
 
       if (currentField?.hasError('maxlength')) {
-        error = `El ${field} solo debe tener 12 caracteres`;
+        error = `${name} solo debe tener 12 caracteres`;
       }
     }
     return error;
@@ -51,19 +56,27 @@ export class SigninComponent implements OnInit {
   // Esta funcion lo que hace es recibir el usuario que hizo login y llenar los campos en la aplicacion
   async setLoginOnApplication() {
     const user = this.formLogin.value;
-    this.authService.Login(user).subscribe((res: any) => {
-      if (res.success) {
-        if (res.data.user != null) {
-          this.authService.setUser(res.data.user);
-          localStorage.setItem('token', res.data.user.token);
-          this.router.navigateByUrl('/dashboard');
+    this.authService.Login(user).subscribe(
+      (res: any) => {
+        if (res.success) {
+          if (res.data.user != null) {
+            this.authService.setUser(res.data.user);
+            localStorage.setItem('token', res.data.user.token);
+            this.router.navigateByUrl('/dashboard');
+          }
+        } else {
+          this.appMessagesService.alertShow(
+            'No se pudo iniciar sesion',
+            'Puede que el usuario o la contraseña sean incorrectas'
+          );
         }
-      } else {
+      },
+      (err) => {
         this.appMessagesService.alertShow(
-          'No se pudo iniciar sesion',
-          'Puede que el usuario o la contraseña sean incorrectas'
+          'Ocurrio un error',
+          'Probablemente sea un problema de conexion con el servidor, porfavor intente de nuevo en unos minutos'
         );
       }
-    });
+    );
   }
 }

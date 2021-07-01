@@ -1,5 +1,5 @@
 aside {
-  background: var(--main-color);
+  background: var(--light-back);
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -7,6 +7,7 @@ aside {
   justify-content: space-between;
   align-items: center;
   z-index: 1010;
+  border-right: 1px solid var(--dark-border);
 }
 aside.open {
   width: 40vh;
@@ -21,7 +22,8 @@ aside .menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70vh;
+  height: auto;
+  padding: 10px 0px;
   width: 100%;
 }
 /* Button */
@@ -38,7 +40,7 @@ button {
   align-items: center;
   margin: 5px 0px 10px 0px;
   border-radius: var(--border-radius);
-  background: var(--secundary-color);
+  background: var(--light-back);
 }
 aside.open button {
   width: 100%;
@@ -47,7 +49,7 @@ button span {
   display: block;
   position: relative;
   border-radius: 2px;
-  background: var(--inverted-title);
+  background: var(--main-color);
   width: 30px;
   height: 4px;
   transition: var(--main-transition);
@@ -80,15 +82,24 @@ aside .menu nav a {
   display: block;
   width: 90%;
   padding: 10px;
-  color: var(--inverted-title);
+  color: var(--main-text);
   transition: var(--main-transition);
   border-radius: var(--border-radius);
+  margin-top: 10px;
 }
 
 aside .menu nav a:hover {
   background: var(--inverted-title);
   color: var(--main-text);
   transition: var(--main-transition);
+}
+aside .menu nav a.active {
+  background: var(--main-color);
+  color: var(--inverted-title);
+  transition: var(--main-transition);
+}
+aside.close .menu nav a:hover {
+  border-radius: 100%;
 }
 aside .menu nav a:hover .icon {
   color: var(--main-text);
@@ -113,27 +124,30 @@ aside .menu nav a .route-text {
   transition: var(--main-transition);
 }
 aside.close .menu nav a .route-text {
-  overflow: hidden;
   width: 0px;
-  height: 0px;
+  /* height: 0px; */
+  min-height: 0px;
+  overflow: hidden;
   transition: var(--main-transition);
 }
 aside.open .menu nav a .route-text {
-  width: 50%;
-  height: auto;
+  width: 70%;
+  height: 20px;
+  padding-top: 4px;
+  min-height: 22px;
   overflow: hidden;
-  text-align: right;
+  /* text-align: right; */
   transition: all 0.6s ease-in-out;
 }
 /* Settings */
 .settings {
   padding: 10px;
   margin: 10px;
-  color: var(--inverted-title);
+  color: var(--main-color);
   cursor: pointer;
 }
 .settings a {
   text-decoration: none;
-  color: var(--inverted-title);
+  color: var(--main-color);
   padding: 10px;
 }

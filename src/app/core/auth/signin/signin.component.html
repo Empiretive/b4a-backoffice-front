@@ -1,28 +1,34 @@
-<div>
-  <h1 class="titulo-login">Iniciar Sesión</h1>
-</div>
-<div class="content-form">
-  <form [formGroup]="formLogin" (submit)="setLoginOnApplication()">
-   
-      <label>Email o DNI</label><br>
+<div class="form-group w-40">
+  <h2 class="form-title">Iniciar Sesión</h2>
 
-      <input type="text" class="form-input" formControlName="userPass" />
-
-      <div class="mensajeError-control">
-         <span>{{ getError("userPass") }} </span>
+  <form
+    [formGroup]="formLogin"
+    class="w-100"
+    (submit)="setLoginOnApplication()"
+  >
+    <div class="form-control">
+      <div class="input-control">
+        <label>Email o DNI</label>
+        <input type="text" formControlName="userPass" autofocus />
       </div>
 
-    
-      <label>Contraseña</label><br>
-  
-      <input type="password"  class="form-input" formControlName="password" />
-
-      <div class="mensajeError-control">
-          <span>{{ getError("password") }} </span>
+      <div class="error-control">
+        <span>{{ getError("userPass") }} </span>
       </div>
+    </div>
 
-    <div>
-      <button type="submit"  class="form-button" [disabled]="formLogin.invalid">Enviar</button>
+    <div class="form-control">
+      <div class="input-control">
+        <label>Contraseña</label>
+        <input type="password" formControlName="password" />
+      </div>
+      <div class="error-control">
+        <span>{{ getError("password") }} </span>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <button type="submit" [disabled]="formLogin.invalid">Enviar</button>
     </div>
   </form>
 </div>

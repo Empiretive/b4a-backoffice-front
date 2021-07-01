@@ -1,0 +1,10 @@
+<nav>
+  <div class="nav-item" *ngFor="let route of routes">
+    <a
+      routerLink="{{ route.path }}"
+      routerLinkActive="active"
+      *role="route.role"
+      >{{ route.name }}</a
+    >
+  </div>
+</nav>
