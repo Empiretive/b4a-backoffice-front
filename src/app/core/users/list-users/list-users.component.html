@@ -1,1 +1,34 @@
-<p>list-users works!</p>
+<button (click)="userTable.recalculate()">Ajustar tabla</button>
+<ngx-datatable
+  [rows]="rows"
+  [columns]="headers"
+  columnMode="force"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [headerHeight]="60"
+  [limit]="10"
+  #userTable
+>
+</ngx-datatable>
+
+<!-- Collumnas de usuarios -->
+<ng-template #userHeader let-column="column">
+  <strong>Usuario</strong>
+</ng-template>
+<ng-template #userValue let-row="row" let-value="value">
+  <a [routerLink]="['../detail', row._id]" class="user-link">
+    <span class="img-icon"><img [src]="row.photo" alt="" /></span>
+    {{ row.name }} {{ row.lastName }}
+  </a>
+</ng-template>
+
+<ng-template #actionRow let-row="row" let-value="value">
+  <a class="btn-icon btn-delete" (click)="deleteUser(row._id)">
+    <span class="icon-trash"></span>
+  </a>
+  <a class="btn-icon btn-edit" (click)="editUser(row._id)">
+    <span class="icon-edit"></span>
+  </a>
+</ng-template>
+
+<b4a-add-plus path="../register" *role="1"></b4a-add-plus>

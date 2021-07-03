@@ -29,6 +29,7 @@
   flex-direction: column;
 }
 /* .input-control: Div que engloba al input y label */
+
 .form-control .input-control {
   width: 100%;
   display: flex;
@@ -38,7 +39,7 @@
   padding: 10px 0px;
   margin: 5px 0px;
 }
-
+/* Inputs tipo texto */
 .form-control .input-control label {
   width: 30%;
   text-align: center;
@@ -55,7 +56,43 @@
   background: var(--dark-back);
   transition: all 0.4s ease-in-out;
 }
+/* inputs tipo archivo */
+.form-control .input-control .file-control input[type="file"] {
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+}
+.form-control .input-control .file-control {
+  padding: 10px 20px;
+  background: var(--dark-back);
+  border-radius: var(--border-radius);
+  color: var(--main-text);
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
 
+/* radios */
+
+.input-control .radio-controls {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.input-control .radio-control {
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
 /* Error */
 .form-control .error-control {
   width: 100%;

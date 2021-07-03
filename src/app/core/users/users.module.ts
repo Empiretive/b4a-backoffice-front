@@ -5,17 +5,24 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ListUsersComponent } from './list-users/list-users.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { DetailUserComponent } from './detail-user/detail-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     UsersComponent,
     RegisterUserComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    DetailUserComponent,
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
-  ]
+    UsersRoutingModule,
+    SharedModule,
+    NgxDatatableModule,
+    ReactiveFormsModule,
+  ],
 })
-export class UsersModule { }
+export class UsersModule {}

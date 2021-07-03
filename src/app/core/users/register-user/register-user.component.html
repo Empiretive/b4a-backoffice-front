@@ -1,1 +1,108 @@
-<p>register-user works!</p>
+<b4a-go2back></b4a-go2back>
+<h3 class="section-title">Registrar usuarios</h3>
+<section class="content-section w-100">
+  <div class="form-group w-70">
+    <form
+      [formGroup]="registerUserform"
+      (submit)="registerUser()"
+      class="w-100"
+    >
+      <!-- nombre -->
+      <div class="form-control">
+        <div class="input-control">
+          <label for="dni">Documento de identidad: *</label>
+          <input type="text" formControlName="dni" />
+        </div>
+        <div class="error-control">
+          <span>{{ getError("dni") }} </span>
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="input-control">
+          <label for="name">Nombres: *</label>
+          <input type="text" formControlName="name" name="name" />
+        </div>
+        <div class="error-control">
+          <span>{{ getError("name") }} </span>
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="input-control">
+          <label for="lastName">Apellido: *</label>
+          <input type="text" formControlName="lastName" name="lastName" />
+        </div>
+        <div class="error-control">
+          <span>{{ getError("lastName") }} </span>
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="input-control">
+          <label for="email">Correo Electronico: *</label>
+          <input type="email" formControlName="email" name="email" />
+        </div>
+        <div class="error-control">
+          <span>{{ getError("email") }} </span>
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="input-control">
+          <label for="phone">Telefono:</label>
+          <input type="text" formControlName="phone" name="phone" />
+        </div>
+        <div class="error-control">
+          <span>{{ getError("phone") }} </span>
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="input-control">
+          <label for="password">Contraseña:</label>
+          <input type="text" formControlName="password" name="password" />
+        </div>
+        <div class="error-control">
+          <span>{{ getError("password") }} </span>
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="input-control">
+          <label for="role">Roles: </label>
+          <div class="radio-controls">
+            <div class="radio-control" *ngFor="let role of roles">
+              <label for="role">{{ role.name }}</label>
+              <input
+                type="radio"
+                name="role"
+                formControlName="role"
+                [value]="role.level"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="error-control">
+          <span>{{ getError("role") }} </span>
+        </div>
+      </div>
+      <div class="form-control">
+        <button
+          type="submit"
+          [disabled]="registerUserform.invalid"
+          class="btn primary"
+        >
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="user-data w-30">
+    <div class="user-image">
+      <img [src]="userImg ? userImg : ''" alt="" />
+    </div>
+    <div class="form-control w-100">
+      <div class="input-control w-100">
+        <label for="photo" class="file-control">
+          <input type="file" name="photo" (change)="putPhoto($event)" />
+          Subir foto
+        </label>
+      </div>
+    </div>
+  </div>
+</section>

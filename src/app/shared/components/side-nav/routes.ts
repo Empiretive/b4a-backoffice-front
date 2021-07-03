@@ -3,7 +3,7 @@ export const Routes = [
     name: 'Usuarios',
     path: '/dashboard/users',
     icon: 'icon-users',
-    role: 1,
+    role: 2,
   },
   {
     name: 'Productos',

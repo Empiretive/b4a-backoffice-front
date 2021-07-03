@@ -9,7 +9,11 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./top-nav.component.css'],
 })
 export class TopNavComponent implements OnInit {
-  user: any = {};
+  user: any = {
+    name: 'Usuario',
+    lastName: '',
+    role: 4,
+  };
   userControl = false;
   constructor(
     private authService: AuthService,
@@ -19,12 +23,16 @@ export class TopNavComponent implements OnInit {
   navToggle = true;
   ngOnInit(): void {
     this.user = this.authService.getUser();
+    this.authService.getUserObserver().subscribe((res) => {
+      this.user = res;
+    });
     this.toggleContentService.getToggle().subscribe((res) => {
       this.navToggle = res;
     });
     this.controlsService.getUserControl().subscribe((res) => {
       this.userControl = res;
     });
+    console.log(this.user);
   }
 
   toggleUserControl() {

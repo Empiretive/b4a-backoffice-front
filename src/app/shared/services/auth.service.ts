@@ -8,20 +8,20 @@ import { Subject, Observable } from 'rxjs';
 })
 export class AuthService {
   constructor(private router: Router, private http: HttpClient) {}
-  private user: any = {
-    image: 'assets/user-placeholder.jpg',
-    name: 'Usuario',
-    role: {
-      level: 1,
-      name: 'Administrador',
-    },
-  };
+  private user = '';
+  private user$ = new Subject<any>();
 
   // Establecer al usuario logueado
   setUser(user: any) {
     this.user = user;
   }
+  setUserObserver(user: any) {
+    this.user$.next(user);
+  }
   // Obtener al usuario logueado
+  getUserObserver(): Observable<any> {
+    return this.user$;
+  }
   getUser() {
     return this.user;
   }
@@ -49,6 +49,7 @@ export class AuthService {
         (res: any) => {
           if (res.success) {
             this.setUser(res.data);
+            this.setUserObserver(res.data);
             this.router.navigateByUrl('/dashboard');
             return true;
           }
@@ -69,6 +70,7 @@ export class AuthService {
   Logout(): void {
     // Logica y peticiones para hacer logout
     localStorage.clear();
+    this.setUser('');
     this.router.navigateByUrl('/auth');
   }
 }

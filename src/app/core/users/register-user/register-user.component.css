@@ -1,0 +1,32 @@
+:host {
+  width: 100%;
+}
+.user-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-image {
+  width: 90%;
+  margin: 15px auto;
+  height: auto;
+  max-width: 150px;
+  min-height: 150px;
+  border-radius: 50%;
+  background-color: var(--dark-back);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.user-image img {
+  width: 100%;
+  height: auto;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

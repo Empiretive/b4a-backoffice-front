@@ -10,7 +10,6 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class AuthComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
   ngOnInit(): void {
-    this.authService.JWTUserCouldLogin();
-    this.router.navigateByUrl('/auth/signin');
+    // this.router.navigateByUrl('/auth/signin');
   }
 }

@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivateChild {
+  currentUser: any;
   constructor(private authService: AuthService) {}
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
@@ -21,8 +22,8 @@ export class RoleGuard implements CanActivateChild {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const currentUser = this.authService.getUser();
-    if (currentUser.role.level <= childRoute.data.role) {
+    this.currentUser = this.authService.getUser();
+    if (this.currentUser.role.level <= childRoute.data.role) {
       return true;
     } else {
       alert('No tienes permisos para acceder a esta ruta');

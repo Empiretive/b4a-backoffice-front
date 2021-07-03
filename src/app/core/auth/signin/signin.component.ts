@@ -28,7 +28,9 @@ export class SigninComponent implements OnInit {
     private appMessagesService: AppMessagesService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.JWTUserCouldLogin();
+  }
 
   getError(field: string) {
     const currentField = this.formLogin.get(field);
@@ -61,6 +63,7 @@ export class SigninComponent implements OnInit {
         if (res.success) {
           if (res.data.user != null) {
             this.authService.setUser(res.data.user);
+            this.authService.setUserObserver(res.data.user);
             localStorage.setItem('token', res.data.user.token);
             this.router.navigateByUrl('/dashboard');
           }

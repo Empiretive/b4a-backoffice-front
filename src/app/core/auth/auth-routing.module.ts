@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { JwtGuard } from 'src/app/shared/guards/jwt.guard';
+import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { AuthComponent } from './auth.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SigninComponent } from './signin/signin.component';
 
 const routes: Routes = [
@@ -18,6 +19,11 @@ const routes: Routes = [
       {
         path: 'signin',
         component: SigninComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
       },
     ],
   },

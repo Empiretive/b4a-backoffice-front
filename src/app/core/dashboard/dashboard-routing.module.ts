@@ -27,7 +27,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('../users/users.module').then((m) => m.UsersModule),
         data: {
-          role: 1,
+          role: 2,
         },
       },
       {
