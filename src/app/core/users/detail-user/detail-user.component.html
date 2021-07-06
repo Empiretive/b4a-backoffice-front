@@ -1,1 +1,8 @@
-<p>detail-user works!</p>
+<section class="content-section w-100">
+  <div class="image-round">
+    <img [src]="user?.photo" />
+  </div>
+  <div class="profile">
+    <h2>{{ user.name }} {{ user.lastName }}</h2>
+  </div>
+</section>

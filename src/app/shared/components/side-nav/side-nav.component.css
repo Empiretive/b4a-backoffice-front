@@ -3,18 +3,19 @@ aside {
   display: flex;
   flex-direction: column;
   position: fixed;
-  height: 100vh;
+  height: calc(100% - 50px);
   justify-content: space-between;
   align-items: center;
   z-index: 1010;
   border-right: 1px solid var(--dark-border);
+  top: 50px;
 }
 aside.open {
   width: 40vh;
   transition: var(--main-transition);
 }
 aside.close {
-  width: 40px;
+  width: 50px;
   overflow: hidden;
   transition: var(--main-transition);
 }
@@ -29,22 +30,24 @@ aside .menu {
 /* Button */
 
 button {
-  background: none;
   border: none;
   cursor: pointer;
-  min-width: 35px;
-  min-height: 35px;
+  min-width: 50px;
+  min-height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin: 5px 0px 10px 0px;
+  /* margin: 0px 0px 10px 0px; */
+  z-index: 1010;
+
+  top: 0;
+  left: 0;
+  position: fixed;
   border-radius: var(--border-radius);
   background: var(--light-back);
 }
-aside.open button {
-  width: 100%;
-}
+
 button span {
   display: block;
   position: relative;
@@ -55,16 +58,16 @@ button span {
   transition: var(--main-transition);
 }
 
-aside.open button span:nth-child(1) {
-  transform: rotate(45deg) translateY(6.5px) translateX(6.5px);
+button.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px) translateX(10px);
   transition: var(--main-transition);
 }
-aside.open button span:nth-child(2) {
+button.open span:nth-child(2) {
   transform: rotate(-135deg);
   transition: var(--main-transition);
 }
-aside.open button span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-6.5px) translateX(6.5px);
+button.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px) translateX(10px);
   transition: var(--main-transition);
 }
 /* navegation */
@@ -150,4 +153,40 @@ aside.open .menu nav a .route-text {
   text-decoration: none;
   color: var(--main-color);
   padding: 10px;
+}
+.overload {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  aside {
+    position: fixed;
+    width: 70vw;
+  }
+  aside.open {
+    width: 70vw;
+    transform: translateX(0);
+  }
+  aside.close {
+    width: 70vw;
+    transform: translateX(-100%);
+  }
+  .overload {
+    display: block;
+  }
+  .overload.close {
+    width: 0px;
+    height: 0px;
+    position: fixed;
+    top: 0;
+    left: 0px;
+  }
+  .overload.open {
+    background: rgba(0, 0, 0, 0.412);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1008;
+    top: 0;
+    left: 0;
+  }
 }

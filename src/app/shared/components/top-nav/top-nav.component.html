@@ -10,8 +10,8 @@
           alt="User avatar"
         />
       </div>
-      <div class="user" [ngClass]="userControl ? '' : 'hide'">
-        <div class="user-image">
+      <div class="user-menu" [ngClass]="userControl ? '' : 'hide'">
+        <div class="user-photo">
           <img
             [src]="user.photo ? user.photo : './assets/user-placeholder.jpg'"
             alt="User image"
@@ -23,8 +23,6 @@
           >
         </h3>
         <div class="user-options">
-          <button>Perfil</button>
-
           <button (click)="logout()">Cerrar Sesion</button>
         </div>
       </div>

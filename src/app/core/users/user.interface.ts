@@ -5,9 +5,9 @@ export interface User {
   lastName: string;
   phone?: string;
   email: string;
-  role: string;
+  role: any;
   photo?: string;
-  status?: string;
+  status: any;
   createdAt?: Date;
   updatedAt?: Date;
 }

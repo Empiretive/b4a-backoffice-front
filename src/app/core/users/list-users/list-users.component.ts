@@ -20,14 +20,21 @@ export class ListUsersComponent implements OnInit {
     | TemplateRef<any>
     | undefined;
   @ViewChild('userTable', { static: true }) userTable: TemplateRef<any> | any;
+  @ViewChild('mobileTable', { static: true }) mobileTable:
+    | TemplateRef<any>
+    | any;
   headers: any = [];
-
+  origin: any = [];
   rows: any = [];
+  mobile: any = [];
   constructor(
     private userService: UserService,
     private msgService: AppMessagesService
   ) {}
-
+  recalculate() {
+    this.userTable.recalculate();
+    this.mobileTable.recalculate();
+  }
   ngOnInit(): void {
     this.headers = [
       { prop: 'dni', name: 'Documento' },
@@ -46,14 +53,42 @@ export class ListUsersComponent implements OnInit {
         name: 'Controles',
       },
     ];
+    this.mobile = [
+      {
+        cellTemplate: this.usernameTemplate,
+        headerTemplate: this.userHeaderTemplate,
+        name: 'Name',
+      },
+      {
+        cellTemplate: this.actions,
+        // headerTemplate: this.userHeaderTemplate,
+        name: 'Controles',
+      },
+    ];
     this.getUsers();
+  }
+  searchByUser(event: any) {
+    this.rows = [...this.origin];
+    const search = RegExp(event.target.value, 'gi');
+    const users = this.rows.filter((user: any) => {
+      if (
+        search.test(user.name) ||
+        search.test(user.lastName) ||
+        search.test(user.dni)
+      ) {
+        return user;
+      }
+    });
+    this.rows = [...users];
   }
   getUsers() {
     this.userService.getUsers().subscribe(
       (res: any) => {
         this.rows = [...res.data];
+        this.origin = this.rows;
+
         this.userTable.recalculate();
-        this.userTable.offset(0);
+        this.mobileTable.recalculate();
       },
       (err) => {
         console.log(err);

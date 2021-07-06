@@ -32,7 +32,6 @@ export class TopNavComponent implements OnInit {
     this.controlsService.getUserControl().subscribe((res) => {
       this.userControl = res;
     });
-    console.log(this.user);
   }
 
   toggleUserControl() {

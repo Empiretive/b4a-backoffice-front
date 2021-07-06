@@ -3,6 +3,12 @@
   height: 100%;
   min-width: 100%;
 }
+.search {
+  display: block;
+  text-align: center;
+  padding: 10px 20px !important;
+  background: var(--light-back) !important;
+}
 a.user-link {
   display: flex;
   width: 100%;
@@ -42,4 +48,21 @@ a.user-link {
 }
 .btn-edit {
   background: var(--green);
+}
+.btn.primary {
+  margin: 10px auto;
+}
+.mobile {
+  display: none;
+}
+div.empty-row {
+  padding: 25px !important;
+}
+@media screen and (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
 }

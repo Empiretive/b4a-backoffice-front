@@ -1,0 +1,15 @@
+.photo-content {
+  width: 30%;
+}
+.user-content {
+  width: 70%;
+}
+@media screen and (max-width: 768px) {
+  .photo-content {
+    width: 100%;
+    margin: 20px 0px;
+  }
+  .user-content {
+    width: 100%;
+  }
+}

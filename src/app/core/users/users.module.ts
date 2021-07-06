@@ -9,6 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterUserComponent,
     ListUsersComponent,
     DetailUserComponent,
+    UpdateUserComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,106 @@
+<b4a-go2back path="../../"></b4a-go2back>
+<section class="content-section w-100 d-flex">
+  <div class="photo-content">
+    <div class="user-image">
+      <img [src]="user.photo ? user.photo: './assets/user-placeholder.jpg'" alt="" />
+      <label class="change-photo"
+        ><input type="file" (change)="putPhoto($event)" />
+        <span>Cambiar Foto <i class="icon icon-camera"></i> </span>
+      </label>
+    </div>
+  </div>
+  <div class="user-content">
+    <div class="form-group w-100">
+      <form class="w-100" [formGroup]="updateUserform" (submit)="updateUser()">
+        <div class="form-control w-100">
+          <div class="input-control">
+            <label>Documento de identificacion</label>
+            <input type="text" formControlName="dni" />
+          </div>
+          <div class="error-control">
+            <span>{{ getError("dni") }} </span>
+          </div>
+        </div>
+        <div class="inputs-flex d-flex w-100">
+          <div class="form-control w-50">
+            <div class="input-control">
+              <label>Nombre</label>
+              <input type="text" formControlName="name" />
+            </div>
+            <div class="error-control">
+              <span>{{ getError("name") }} </span>
+            </div>
+          </div>
+          <div class="form-control w-50">
+            <div class="input-control">
+              <label>Apellido</label>
+              <input type="text" formControlName="lastName" />
+            </div>
+            <div class="error-control">
+              <span>{{ getError("lastName") }} </span>
+            </div>
+          </div>
+        </div>
+        <div class="inputs-flex d-flex w-100">
+          <div class="form-control w-50">
+            <div class="input-control">
+              <label>Email</label>
+              <input type="text" formControlName="email" />
+            </div>
+            <div class="error-control">
+              <span>{{ getError("email") }} </span>
+            </div>
+          </div>
+          <div class="form-control w-50">
+            <div class="input-control">
+              <label>Telefono</label>
+              <input type="text" formControlName="phone" />
+            </div>
+            <div class="error-control">
+              <span>{{ getError("phone") }} </span>
+            </div>
+          </div>
+        </div>
+        <div class="inputs-flex d-flex w-100">
+          <div class="form-control w-30">
+            <div class="input-control">
+              <label>Estado</label>
+              <select formControlName="status">
+                <option *ngFor="let state of states" [value]="state.value">
+                  {{ state.name }}
+                </option>
+              </select>
+            </div>
+            <div class="error-control">
+              <span>{{ getError("status") }} </span>
+            </div>
+          </div>
+          <div class="form-control w-70">
+            <div class="input-control">
+              <label for="role">Roles: </label>
+              <select name="role" formControlName="role">
+                <option *ngFor="let role of roles" [value]="role.level">
+                  {{ role.name }}
+                </option>
+              </select>
+            </div>
+            <div class="error-control">
+              <span>{{ getError("role") }} </span>
+            </div>
+          </div>
+        </div>
+        <div class="form-control w-70">
+          <div class="input-control">
+            <button
+              class="btn primary"
+              [disabled]="updateUserform.invalid"
+              type="submit"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

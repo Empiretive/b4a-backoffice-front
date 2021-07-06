@@ -15,12 +15,12 @@ nav {
 nav.open {
   transition: var(--main-transition);
 
-  width: calc(100% - 40px);
+  width: calc(100% - 50px);
 }
 nav.close {
   transition: var(--main-transition);
 
-  width: calc(100% - 40vh);
+  width: calc(100% - 50px);
 }
 nav .controls {
   padding: 0px 25px;
@@ -53,7 +53,7 @@ nav .controls .user-controls .user-avatar img {
   left: 0;
 }
 
-nav .controls .user-controls .user {
+nav .controls .user-controls .user-menu {
   position: absolute;
   top: 55px;
   width: 25vw;
@@ -69,7 +69,7 @@ nav .controls .user-controls .user {
   border: 1px solid var(--dark-border);
   transition: var(--main-transition);
 }
-nav .controls .user-controls .user::before {
+nav .controls .user-controls .user-menu::before {
   content: "";
   display: block;
   width: 0px;
@@ -82,18 +82,18 @@ nav .controls .user-controls .user::before {
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
 }
-nav .controls .user-controls .user .user-image {
+nav .controls .user-controls .user-menu .user-photo {
   width: 50%;
   height: 50%;
   border-radius: 100%;
   overflow: hidden;
 }
-nav .controls .user-controls .user .user-image img {
+nav .controls .user-controls .user-menu .user-photo img {
   width: 100%;
   height: 100%;
 }
 
-nav .controls .user-controls .user.hide {
+nav .controls .user-controls .user-menu.hide {
   overflow: hidden;
   width: 0px;
   max-height: 0px;
@@ -104,13 +104,13 @@ nav .controls .user-controls .user.hide {
   opacity: 0;
 }
 
-nav .controls .user-controls .user .user-options {
+nav .controls .user-controls .user-menu .user-options {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
 }
-nav .controls .user-controls .user .user-options > button {
+nav .controls .user-controls .user-menu .user-options > button {
   display: block;
   padding: 10px;
   background: var(--main-color);
@@ -118,4 +118,20 @@ nav .controls .user-controls .user .user-options > button {
   border-radius: var(--border-radius);
   color: var(--inverted-title);
   cursor: pointer;
+}
+nav .controls .user-controls .user-menu h3 a {
+  display: block;
+  padding: 10px;
+  color: var(--main-text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  nav .controls .user-controls .user-menu {
+    width: 80vw;
+    max-width: 250px;
+    min-height: 250px;
+    right: 0px;
+  }
 }

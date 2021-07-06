@@ -1,17 +1,16 @@
 :host {
   width: 100%;
 }
-.user-data {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.form-group {
+  width: 70%;
 }
+
 .user-image {
   width: 90%;
   margin: 15px auto;
   height: auto;
-  max-width: 150px;
-  min-height: 150px;
+  max-width: 250px;
+  min-height: 200px;
   border-radius: 50%;
   background-color: var(--dark-back);
   display: flex;
@@ -25,8 +24,17 @@
 }
 
 .user-data {
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .form-group {
+    width: 100%;
+  }
+  .user-data {
+    width: 100%;
+  }
 }

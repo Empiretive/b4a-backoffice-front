@@ -18,6 +18,9 @@ export class UserService {
   getUsers() {
     return this.http.get(`${this.baseApi}/users`);
   }
+  getOneUser(id: string) {
+    return this.http.get(`${this.baseApi}/users/${id}`);
+  }
   deleteUser(id: any) {
     return this.http.delete(`${this.baseApi}/users/${id}`);
   }

@@ -1,7 +1,7 @@
-<b4a-go2back></b4a-go2back>
+<b4a-go2back path="../"></b4a-go2back>
 <h3 class="section-title">Registrar usuarios</h3>
 <section class="content-section w-100">
-  <div class="form-group w-70">
+  <div class="form-group">
     <form
       [formGroup]="registerUserform"
       (submit)="registerUser()"
@@ -92,17 +92,13 @@
       </div>
     </form>
   </div>
-  <div class="user-data w-30">
+  <div class="user-data">
     <div class="user-image">
-      <img [src]="userImg ? userImg : ''" alt="" />
-    </div>
-    <div class="form-control w-100">
-      <div class="input-control w-100">
-        <label for="photo" class="file-control">
-          <input type="file" name="photo" (change)="putPhoto($event)" />
-          Subir foto
-        </label>
-      </div>
+      <img [src]="userImg ? userImg : './assets/user-placeholder.jpg'" alt="" />
+      <label class="change-photo"
+        ><input type="file" (change)="putPhoto($event)" />
+        <span>Cambiar Foto <i class="icon icon-camera"></i> </span>
+      </label>
     </div>
   </div>
 </section>

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CancelGuard } from 'src/app/shared/guards/cancel.guard';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 import { UsersComponent } from './users.component';
 
 const routes: Routes = [
@@ -21,6 +23,7 @@ const routes: Routes = [
         data: {
           role: 1,
         },
+        canDeactivate: [CancelGuard],
       },
       {
         path: 'list',
@@ -35,6 +38,14 @@ const routes: Routes = [
         data: {
           role: 2,
         },
+      },
+      {
+        path: 'update/:id',
+        component: UpdateUserComponent,
+        data: {
+          role: 1,
+        },
+        canDeactivate: [CancelGuard],
       },
     ],
   },
