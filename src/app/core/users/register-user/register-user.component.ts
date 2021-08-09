@@ -82,10 +82,7 @@ export class RegisterUserComponent implements OnInit {
     if (img.type !== 'image/jpeg' && img.type !== 'image/png') {
       this.msgService.alertShow(
         'Formato de archivo invalido',
-        'El archivo debe ser una imagen JPG o PNG',
-        () => {
-          console.log('alerta');
-        }
+        'El archivo debe ser una imagen JPG o PNG'
       );
     } else if (img.size / 1024 > 500) {
       this.msgService.alertShow(
@@ -104,7 +101,6 @@ export class RegisterUserComponent implements OnInit {
     const newUser = this.registerUserform.value;
 
     newUser.photo = this.userImg;
-    console.log(newUser);
     // this.registerUserform.reset();
     this.userService.registerUser(newUser).subscribe(
       (res: any) => {
@@ -117,7 +113,6 @@ export class RegisterUserComponent implements OnInit {
             }
           );
         } else {
-          console.log(res);
           const error = res.message.split('.');
           if (error[error.length - 1] == 'USER_EXIST') {
             this.msgService.alertShow(

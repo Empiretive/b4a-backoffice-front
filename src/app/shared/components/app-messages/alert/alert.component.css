@@ -12,7 +12,8 @@
 section {
   padding: 20px;
   width: 40%;
-  min-height: 150px;
+  min-height: 200px;
+  max-width: 400px;
   background: var(--inverted-title);
   z-index: 11100;
   display: flex;
@@ -44,4 +45,10 @@ section button {
 }
 .container.show {
   display: flex;
+}
+@media screen and (max-width: 768px) {
+  section {
+    width: 90%;
+    max-height: 30%;
+  }
 }

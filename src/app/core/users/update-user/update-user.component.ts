@@ -132,7 +132,6 @@ export class UpdateUserComponent implements OnInit {
   updateUser() {
     const user = this.updateUserform.value;
     user.photo = this.user.photo;
-    console.log(user);
     this.userService.updateUser(this.user._id, user).subscribe((res) => {
       if (res) {
         this.msgService.alertShow(
@@ -143,7 +142,6 @@ export class UpdateUserComponent implements OnInit {
           }
         );
       }
-      console.log(res);
     });
   }
 }

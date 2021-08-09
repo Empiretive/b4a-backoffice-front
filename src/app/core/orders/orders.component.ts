@@ -4,19 +4,14 @@ import { AppMessagesService } from 'src/app/shared/components/app-messages/app-m
 @Component({
   selector: 'b4a-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit {
+  constructor(private msgService: AppMessagesService) {}
 
-  constructor(private msgService: AppMessagesService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  mostrarAlert() {
+    this.msgService.alertShow('Alerta mostrada', 'Esta es una alerta');
   }
-
-  mostrarAlert(){
-    this.msgService.alertShow('Alerta mostrada', "Esta es una alerta", ()=>{
-      console.log("Se acepto la alerta")
-    })
-  }
-
 }

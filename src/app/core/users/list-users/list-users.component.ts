@@ -95,9 +95,6 @@ export class ListUsersComponent implements OnInit {
       }
     );
   }
-  editUser(id: any) {
-    console.log('Editing: ' + id);
-  }
   deleteUser(id: any) {
     this.msgService
       .showConfirm(
