@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit {
+  routes= [
+    {
+      path: 'tags',
+      name: 'Categorías',
+      role: 1,
+    },
+    {
+      path: 'create-tags',
+      name: 'Crear categoría',
+      role: 1,
+    },
+  ];
 
   constructor() { }
 

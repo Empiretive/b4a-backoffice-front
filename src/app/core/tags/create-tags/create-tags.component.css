@@ -1,0 +1,25 @@
+.content-section{
+    margin: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.input{
+    height: 40px;
+}
+.input-control label{
+    font-size: 14px;
+ }
+.label{
+    width: 30%;
+  text-align: center;
+  color: var(--main-text);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 30px;
+}
+.guardar{
+    margin-left: 30%;
+    margin-top: 30px;
+   
+  }
